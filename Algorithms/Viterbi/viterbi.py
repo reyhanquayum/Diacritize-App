@@ -2,17 +2,20 @@ import copy
 
 
 class ViterbiAlgorithm():
-    def __init__(self) -> None:
+    def __init__(self, ngram) -> None:
         self.wordLikelihood = {}
         self.transitionMatrix = {"Begin_Sent": {}, "End_Sent": {}}
-        
-def normalizeProbabilities(matrix):
-    for aRow in matrix:
-        count = sum(matrix[aRow].values())
-        for elem in matrix[aRow]:
-            matrix[aRow][elem] /= count
-    return matrix
+        self.ngram = ngram # the n-gram number of the item
 
+    def _normalizeProbabilities(matrix):
+        for aRow in matrix:
+            count = sum(matrix[aRow].values())
+            for elem in matrix[aRow]:
+                matrix[aRow][elem] /= count
+        return matrix
+
+    def fillMatrices(filePath):
+        
 def createMatrices(path):
     # training set is
 
@@ -110,118 +113,6 @@ def createStateIndices(transitionMatrix):
     return stateIndices
     # initializing state indices
 
-
-def determineClass(word):
-    classes = ["endsinED", "endsInING", "endInS", "endsInTION",
-               "endsInMENT", "endsInNESS", "endsInABLE",
-               "endsInIBLE", "endsInAL", "endsInFUL", "endsInOUS", "endsInIVE",
-               "endsInANT", "endsInENT", "endsInISM", "endsInIST", "endsInITY",
-               "endsInIZE", "endsInISE", "endsInSHIP", "endsInLESS", "endsInER",
-               "endsInOR", "endsInEST", "endsInLY", "endsInY"
-               "startsCapital", "isNumber", "isAllCaps", "isHyphenated",
-               "startsInUN", "startsInRE", "startsInOVER", "startsInUNDER", "startsInOUT",
-               "startsInIN", "startsInEX", "startsInNON", "startsInPOST", "startsInPRE"          
-               ]
-    
-    wordsClasses = []
-    try:
-        if word[-2:] == "ed":
-            wordsClasses.append(classes[0])
-        elif word[-3:] == "ing":
-            wordsClasses.append(classes[1])
-        elif word[-1] == "s":
-            wordsClasses.append(classes[2])
-        elif word[-4:] == "tion":
-            wordsClasses.append(classes[3])
-        elif word[-1] == "ment":
-            wordsClasses.append(classes[4])
-        elif word[-3:] == "ness":
-            wordsClasses.append(classes[5])
-        elif word[-1] == "able":
-            wordsClasses.append(classes[6])
-        elif word[-3:] == "ible":
-            wordsClasses.append(classes[7])
-        elif word[-1] == "al":
-            wordsClasses.append(classes[8])
-        elif word[-3:] == "ful":
-            wordsClasses.append(classes[9])
-        elif word[-3:] == "ous":
-            wordsClasses.append(classes[10])
-        elif word[-3:] == "ive":
-            wordsClasses.append(classes[11])
-        elif word[-3:] == "ant":
-            wordsClasses.append(classes[12])
-        elif word[-3:] == "ent":
-            wordsClasses.append(classes[13])
-        elif word[-3:] == "ism":
-            wordsClasses.append(classes[14])
-        elif word[-3:] == "ist":
-            wordsClasses.append(classes[15])
-        elif word[-3:] == "ity":
-            wordsClasses.append(classes[16])
-        elif word[-3:] == "ize":
-            wordsClasses.append(classes[17])
-        elif word[-3:] == "ise":
-            wordsClasses.append(classes[18])
-        elif word[-4:] == "ship":
-            wordsClasses.append(classes[19])
-        elif word[-4:] == "less":
-            wordsClasses.append(classes[20])
-        elif word[-2:] == "er":
-            wordsClasses.append(classes[21])
-        elif word[-2:] == "or":
-            wordsClasses.append(classes[22])
-        elif word[-3:] == "est":
-            wordsClasses.append(classes[23])
-        if word[-2:] == "ly":
-            wordsClasses.append(classes[24])
-        elif word[-1] == "y":
-            wordsClasses.append(classes[25])
-
-        if word[1].isupper():
-            wordsClasses.append(classes[26])
-
-        for char in word:
-            if char.isdigit():
-                wordsClasses.append(classes[27])
-                break
-        isAll = True
-        for char in word:
-            if not char.isupper():
-                isAll = False
-                break
-        if isAll:
-            wordsClasses.append(classes[28])
-
-        for char in word:
-            if char == "-":
-                wordsClasses.append(classes[29])
-
-        if word[:2] == "un":
-             wordsClasses.append(classes[30])
-        elif word[:2] == "re":
-            wordsClasses.append(classes[31])
-        elif word[:4] == "over":
-            wordsClasses.append(classes[32])
-        elif word[:5] == "under":
-            wordsClasses.append(classes[33])
-        elif word[:3] == "out":
-            wordsClasses.append(classes[34])
-        elif word[:2] == "in":
-            wordsClasses.append(classes[35])
-        elif word[:2] == "ex":
-            wordsClasses.append(classes[36])
-        elif word[:3] == "non":
-            wordsclasses.append(classes[37])
-        elif word[:4] == "post":
-            wordsClasses.append(classes[38])
-        elif word[:3] == "pre":
-            wordsClasses.append(classes[39])
-        return wordsClasses if len(wordsClasses) > 0 else ["unknownClass"]
-
-    except:
-
-        return ["unknownClass"]
 
 def createWordLikelihoodClasses(wordLikelihoodMatrix):
    
