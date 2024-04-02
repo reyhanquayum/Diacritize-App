@@ -43,7 +43,11 @@ Necessary libraries (to be specified in a requirements.txt file)
 
 Clone this repository. 
 
-Install the required libraries using pip install -r requirements.txt. 
+Install the required libraries using 
+
+```bash
+pip install -r requirements.txt
+```
 
 Refer to the documentation (to be added) for further instructions on running the code and evaluating the models. 
 
