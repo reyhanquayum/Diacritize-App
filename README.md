@@ -18,10 +18,13 @@ Arabic text is often written without vowel markings, which can be challenging fo
 * Transformer-based architecture 
 
 **Data:** 
-Pre-vocalized text from the Quran and Hadith 
-Children's novels and beginner Arabic books 
+Pre-vocalized text from the Quran and Hadith  
+
+Children's novels and beginner Arabic books  
+
 Potentially the Tashkeel dataset 
-Evaluation: We will evaluate our system's accuracy on a held-out test set, aiming for above 90% accuracy on the development set. 
+
+**Evaluation:** We will evaluate our system's accuracy on a held-out test set, aiming for above 90% accuracy on the development set. 
 
 ## Getting Started
 This repository includes the following:
