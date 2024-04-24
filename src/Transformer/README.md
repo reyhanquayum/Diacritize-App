@@ -229,3 +229,7 @@ This dataset was created by:
 * Two anonymous Arabic langauge teachers as annotators.
 * One anonymous voice talent.
 * Thanks to [@zaidalyafeai](https://github.com/zaidalyafeai) for adding this dataset.
+
+### important CMD line installs;
+## by:Ben
+*  Using the `Trainer` with `PyTorch` requires `accelerate>=0.21.0`: Please run `pip install transformers[torch]` or `pip install accelerate -U`

@@ -18,7 +18,7 @@ with open(input_file, "r", encoding="utf-8") as file:
     text = file.read()
 
 # Split the text into sentences using asterisk (*) as separator
-sentences = text.split(" * ")
+sentences = text.split("*")
 
 # Initialize list to store sentences with vowels
 sentences_with_vowels = []
@@ -45,6 +45,6 @@ for sentence in sentences:
     sentences_with_vowels.append(sentence_with_vowels)
 
 # Write the sentences with predicted vowels to a new file
-output_file = "output_with_vowels-3.txt"
+output_file = "output_with_vowels.txt"
 with open(output_file, "w", encoding="utf-8") as f:
     f.write("\n".join(sentences_with_vowels))
