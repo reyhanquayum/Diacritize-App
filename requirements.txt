@@ -1,4 +1,0 @@
-﻿PyArabic==0.6.15
-six==1.16.0
-spacy==3.2.1
-transformers==4.12.2
